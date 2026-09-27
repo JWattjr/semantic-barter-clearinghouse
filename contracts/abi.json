@@ -1,0 +1,200 @@
+{
+  "ctor": {
+    "params": [],
+    "kwparams": {}
+  },
+  "methods": {
+    "cancel_cycle": {
+      "params": [
+        [
+          "cycle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "cancel_offer": {
+      "params": [
+        [
+          "offer_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "consent_cycle": {
+      "params": [
+        [
+          "cycle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "dict",
+      "payable": false
+    },
+    "create_offer": {
+      "params": [
+        [
+          "offer_id",
+          "string"
+        ],
+        [
+          "asset_id",
+          "string"
+        ],
+        [
+          "amount_units",
+          "int"
+        ],
+        [
+          "offered_description",
+          "string"
+        ],
+        [
+          "request_description",
+          "string"
+        ],
+        [
+          "expires_at_iso",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "string",
+      "payable": false
+    },
+    "deposit_demo_asset": {
+      "params": [
+        [
+          "asset_id",
+          "string"
+        ],
+        [
+          "amount_units",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "int",
+      "payable": false
+    },
+    "execute_cycle": {
+      "params": [
+        [
+          "cycle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "dict",
+      "payable": false
+    },
+    "expire_cycle": {
+      "params": [
+        [
+          "cycle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "expire_offer": {
+      "params": [
+        [
+          "owner",
+          "string"
+        ],
+        [
+          "offer_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "get_asset_accounting": {
+      "params": [
+        [
+          "asset_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_balance": {
+      "params": [
+        [
+          "owner",
+          "string"
+        ],
+        [
+          "asset_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "int"
+    },
+    "get_cycle": {
+      "params": [
+        [
+          "cycle_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "get_offer": {
+      "params": [
+        [
+          "owner",
+          "string"
+        ],
+        [
+          "offer_id",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "dict"
+    },
+    "propose_cycle": {
+      "params": [
+        [
+          "offer_keys_json",
+          "string"
+        ],
+        [
+          "consent_deadline_iso",
+          "string"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "dict",
+      "payable": false
+    }
+  }
+}
