@@ -1,4 +1,4 @@
-# { "Depends": "py-genlayer:5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng" }
+# { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }
 
 """Consented semantic barter cycles over explicitly fungible demo units."""
 
@@ -7,7 +7,7 @@ import hashlib
 import json
 import re
 
-import genlayer as gl
+from genlayer import *
 
 
 MAX_OFFERS = 24
@@ -56,13 +56,9 @@ def _time_text(value: str, label: str) -> str:
 
 
 def _now() -> datetime:
-    message = getattr(gl, "message", None)
-    value = getattr(message, "datetime", None)
-    if value is None:
-        raw = getattr(message, "raw", {})
-        value = raw.get("datetime", "") if isinstance(raw, dict) else ""
+    raw = getattr(gl, "message_raw", {})
+    value = raw.get("datetime", "") if isinstance(raw, dict) else ""
     return _time(str(value), "block time")
-
 
 def _canonical(value) -> str:
     return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True)
@@ -125,16 +121,16 @@ def _validate_compatibility(raw, snapshot: dict) -> dict:
     return {"edges": clean}
 
 
-class SemanticBarterClearinghouse(gl.contract.Contract):
-    balances: gl.storage.TreeMap[str, gl.u256]
-    minted_units: gl.storage.TreeMap[str, gl.u256]
-    available_total: gl.storage.TreeMap[str, gl.u256]
-    reserved_total: gl.storage.TreeMap[str, gl.u256]
-    offers: gl.storage.TreeMap[str, str]
-    offer_locks: gl.storage.TreeMap[str, str]
-    offer_order: gl.storage.DynArray[str]
-    cycles: gl.storage.TreeMap[str, str]
-    cycle_order: gl.storage.DynArray[str]
+class SemanticBarterClearinghouse(gl.Contract):
+    balances: TreeMap[str, u256]
+    minted_units: TreeMap[str, u256]
+    available_total: TreeMap[str, u256]
+    reserved_total: TreeMap[str, u256]
+    offers: TreeMap[str, str]
+    offer_locks: TreeMap[str, str]
+    offer_order: DynArray[str]
+    cycles: TreeMap[str, str]
+    cycle_order: DynArray[str]
 
     def __init__(self):
         pass
@@ -164,26 +160,26 @@ class SemanticBarterClearinghouse(gl.contract.Contract):
     def _release_offer(self, offer_key: str, offer: dict, terminal_status: str) -> None:
         amount = int(offer["amount_units"])
         asset_id = offer["asset_id"]
-        reserved = int(self.reserved_total.get(asset_id, gl.u256(0)))
+        reserved = int(self.reserved_total.get(asset_id, u256(0)))
         if reserved < amount:
             raise gl.vm.UserError("[INVARIANT] offer escrow is below its reservation")
-        self.reserved_total[asset_id] = gl.u256(reserved - amount)
-        self.available_total[asset_id] = gl.u256(int(self.available_total.get(asset_id, gl.u256(0))) + amount)
+        self.reserved_total[asset_id] = u256(reserved - amount)
+        self.available_total[asset_id] = u256(int(self.available_total.get(asset_id, u256(0))) + amount)
         key = self._balance_key(offer["owner"], asset_id)
-        self.balances[key] = gl.u256(int(self.balances.get(key, gl.u256(0))) + amount)
+        self.balances[key] = u256(int(self.balances.get(key, u256(0))) + amount)
         offer["status"] = terminal_status
         self.offers[offer_key] = _canonical(offer)
 
     @gl.public.write
-    def deposit_demo_asset(self, asset_id: str, amount_units: gl.u256) -> gl.u256:
+    def deposit_demo_asset(self, asset_id: str, amount_units: u256) -> u256:
         asset = _asset_id(asset_id)
         if type(amount_units) is bool or not isinstance(amount_units, int) or not 0 < int(amount_units) <= MAX_UNIT_AMOUNT:
             raise gl.vm.UserError("[EXPECTED] demo deposit must be a positive bounded amount")
         owner = self._sender()
         key = self._balance_key(owner, asset)
-        self.balances[key] = gl.u256(int(self.balances.get(key, gl.u256(0))) + int(amount_units))
-        self.minted_units[asset] = gl.u256(int(self.minted_units.get(asset, gl.u256(0))) + int(amount_units))
-        self.available_total[asset] = gl.u256(int(self.available_total.get(asset, gl.u256(0))) + int(amount_units))
+        self.balances[key] = u256(int(self.balances.get(key, u256(0))) + int(amount_units))
+        self.minted_units[asset] = u256(int(self.minted_units.get(asset, u256(0))) + int(amount_units))
+        self.available_total[asset] = u256(int(self.available_total.get(asset, u256(0))) + int(amount_units))
         return self.balances[key]
 
     @gl.public.write
@@ -191,7 +187,7 @@ class SemanticBarterClearinghouse(gl.contract.Contract):
         self,
         offer_id: str,
         asset_id: str,
-        amount_units: gl.u256,
+        amount_units: u256,
         offered_description: str,
         request_description: str,
         expires_at_iso: str,
@@ -211,12 +207,12 @@ class SemanticBarterClearinghouse(gl.contract.Contract):
         if key in self.offers:
             raise gl.vm.UserError("[EXPECTED] offer ID is already used by this participant")
         balance_key = self._balance_key(owner, asset)
-        balance = int(self.balances.get(balance_key, gl.u256(0)))
+        balance = int(self.balances.get(balance_key, u256(0)))
         if balance < int(amount_units):
             raise gl.vm.UserError("[EXPECTED] participant has insufficient available demo units")
-        self.balances[balance_key] = gl.u256(balance - int(amount_units))
-        self.available_total[asset] = gl.u256(int(self.available_total.get(asset, gl.u256(0))) - int(amount_units))
-        self.reserved_total[asset] = gl.u256(int(self.reserved_total.get(asset, gl.u256(0))) + int(amount_units))
+        self.balances[balance_key] = u256(balance - int(amount_units))
+        self.available_total[asset] = u256(int(self.available_total.get(asset, u256(0))) - int(amount_units))
+        self.reserved_total[asset] = u256(int(self.reserved_total.get(asset, u256(0))) + int(amount_units))
         offer = {
             "offer_key": key,
             "offer_id": _offer_id(offer_id),
@@ -291,7 +287,7 @@ INPUT_JSON: """ + _canonical(payload)
             except Exception:
                 return False
 
-        raw = gl.vm.run_nondet(leader_fn, validator_fn)
+        raw = gl.vm.run_nondet_unsafe(leader_fn, validator_fn)
         try:
             validated = _validate_compatibility(raw, snapshot)
             return {"snapshot_digest": snapshot["snapshot_digest"], "edges": validated["edges"]}
@@ -436,13 +432,13 @@ INPUT_JSON: """ + _canonical(payload)
             giver = offers[(index + 1) % len(offers)]
             asset = giver["asset_id"]
             amount = int(giver["amount_units"])
-            reserved = int(self.reserved_total.get(asset, gl.u256(0)))
+            reserved = int(self.reserved_total.get(asset, u256(0)))
             if reserved < amount:
                 raise gl.vm.UserError("[INVARIANT] cycle escrow is below an offer reservation")
-            self.reserved_total[asset] = gl.u256(reserved - amount)
-            self.available_total[asset] = gl.u256(int(self.available_total.get(asset, gl.u256(0))) + amount)
+            self.reserved_total[asset] = u256(reserved - amount)
+            self.available_total[asset] = u256(int(self.available_total.get(asset, u256(0))) + amount)
             balance_key = self._balance_key(receiver["owner"], asset)
-            self.balances[balance_key] = gl.u256(int(self.balances.get(balance_key, gl.u256(0))) + amount)
+            self.balances[balance_key] = u256(int(self.balances.get(balance_key, u256(0))) + amount)
             transfers.append({
                 "from_offer": giver["offer_key"],
                 "to_participant": receiver["owner"],
@@ -461,14 +457,14 @@ INPUT_JSON: """ + _canonical(payload)
     @gl.public.view
     def get_balance(self, owner: str, asset_id: str) -> int:
         key = self._balance_key(_text(owner, "owner address", 80), _asset_id(asset_id))
-        return int(self.balances.get(key, gl.u256(0)))
+        return int(self.balances.get(key, u256(0)))
 
     @gl.public.view
     def get_asset_accounting(self, asset_id: str) -> dict:
         asset = _asset_id(asset_id)
-        minted = int(self.minted_units.get(asset, gl.u256(0)))
-        available = int(self.available_total.get(asset, gl.u256(0)))
-        reserved = int(self.reserved_total.get(asset, gl.u256(0)))
+        minted = int(self.minted_units.get(asset, u256(0)))
+        available = int(self.available_total.get(asset, u256(0)))
+        reserved = int(self.reserved_total.get(asset, u256(0)))
         return {
             "asset_id": asset,
             "minted_units": minted,

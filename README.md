@@ -6,7 +6,7 @@ The model does not select quantities, asset IDs, participants, or balances. A tr
 
 ## Toolchain
 
-The source pins `py-genlayer:5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng`; the installed linter validates the exact header. The official First Contract guide still shows a different runner hash as its example. Because this project is undeployed, acceptance of this hash on any target network is unverified. The installed v0.6 RC Python dependencies are pinned in `requirements.txt`.
+The source pins `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`; the installed linter validates the exact header. The fallback runner finalized a trivial StudioNet deployment and write/read-back probe; this project contract has not yet been deployed. The installed v0.6 RC Python dependencies are pinned in `requirements.txt`.
 
 ```powershell
 py -3.14 -m venv .venv
@@ -38,3 +38,7 @@ The project caps the contract at 24 offers and 16 cycle records. Each cycle has 
 Demo units are minted by a faucet method and have no external backing. This is an internal atomic ledger demonstration, not physical barter, a token, cross-chain settlement, or delivery enforcement.
 
 See [mechanism differentiation](docs/MECHANISM_DIFFERENTIATION.md), [test matrix](docs/TEST_MATRIX.md), [security notes](docs/SECURITY_NOTES.md), [complete demo sequence](examples/demo_sequence.md), and the [undeployed submission draft](SUBMISSION_DRAFT.md).
+
+## Why GenLayer
+
+Validators must interpret whether each free-text offered item can satisfy the next participant's frozen request; consent records willingness but does not prove compatibility, and deterministic code cannot compare these descriptions.

@@ -11,4 +11,6 @@ Run `python -m pytest` from the repository root. Compatibility responses are moc
 | Unconsented cycle expiry unlocks offers; expired offers return escrow to their owners | `test_expired_pending_cycle_unlocks_and_expired_offers_return_to_owners` |
 | Cycle length, offer uniqueness, and consent deadline bounds are enforced | `test_cycle_input_bounds_are_enforced_before_model_call` (three parameter cases) |
 
-The current run passed 8 direct-mode tests. GenVM lint passed 3 checks, contract validation reported 13 methods (4 views, 9 writes), and schema extraction succeeded. No network deployment was attempted.
+| Every model-returned judgment field is validated and compared or bound to frozen input | `test_every_returned_judgment_field_is_compared_or_snapshot_bound` |
+
+The current run passed 9 parameter-expanded direct tests. GenVM lint passed 3 checks, contract validation reported 13 methods (4 views, 9 writes), and schema extraction succeeded. No network deployment was attempted.
