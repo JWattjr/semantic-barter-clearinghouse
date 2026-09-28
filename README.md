@@ -6,7 +6,7 @@ The model does not select quantities, asset IDs, participants, or balances. A tr
 
 ## Toolchain
 
-The source pins `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`; the installed linter validates the exact header. The fallback runner finalized a trivial StudioNet deployment and write/read-back probe; this project contract has not yet been deployed. The installed v0.6 RC Python dependencies are pinned in `requirements.txt`.
+The source pins `py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6`; the installed linter validates the exact header. This contract is deployed on StudioNet chain 61999 at `0x7825aa21426894b598c751C83813954CbfF9fCf0` from source commit `ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb`; deployed source matches the Git blob. The live demonstration and public-view read-back are recorded in [the release record](deployments/studionet-release-2026-09-28.json). The installed v0.6 RC Python dependencies are pinned in `requirements.txt`.
 
 ```powershell
 py -3.14 -m venv .venv
@@ -37,7 +37,7 @@ The project caps the contract at 24 offers and 16 cycle records. Each cycle has 
 
 Demo units are minted by a faucet method and have no external backing. This is an internal atomic ledger demonstration, not physical barter, a token, cross-chain settlement, or delivery enforcement.
 
-See [mechanism differentiation](docs/MECHANISM_DIFFERENTIATION.md), [test matrix](docs/TEST_MATRIX.md), [security notes](docs/SECURITY_NOTES.md), [complete demo sequence](examples/demo_sequence.md), and the [undeployed submission draft](SUBMISSION_DRAFT.md).
+See [mechanism differentiation](docs/MECHANISM_DIFFERENTIATION.md), [test matrix](docs/TEST_MATRIX.md), [security notes](docs/SECURITY_NOTES.md), [complete demo sequence](examples/demo_sequence.md), and the [submission draft](SUBMISSION_DRAFT.md).
 
 ## Why GenLayer
 

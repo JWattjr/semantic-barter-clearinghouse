@@ -13,4 +13,22 @@ Scope: contract source review against the other nine portfolio contracts, the na
 
 The mechanism is implemented in contracts/semantic_barter_clearinghouse.py (_assess_cycle, propose_cycle, consent_cycle, execute_cycle). Demo units are internal ledger entries, not delivery or custody of real goods.
 
-**Evidence status:** implemented; the current direct suite passes 8 tests. Phase 3 still needs adversarial leader, disagreement, access, replay, and accounting-boundary coverage. The StudioNet runner probe passed, but this project has not had its own live demonstration yet.
+**Evidence status:** the 9-test direct suite and StudioNet demonstration both passed. Three incompatible two-party cycles rolled back; the compatible three-party cycle executed after exact consent, and replay of its consumed offers rolled back. The deployed source matches commit `ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb`. Anonymous URL verification is recorded in the release artifact after repository publication.
+
+## Final self-review
+
+| Gate | Result | Evidence |
+|---|---|---|
+| Technical readiness | PASS | 9 parameter-expanded direct tests, 3 GenVM lint checks, 13 validated methods, source-blob match, and all 16 StudioNet transactions finalized (12 successful calls and 4 expected rollbacks). |
+| Distinctiveness | PASS | Every two-party cycle failed on an incompatible directed edge; the fully consented three-party cycle executed and each consumed-offer replay failed. |
+| Evidence readiness | PENDING | Deployment, transaction outcomes, and public-view readback are recorded; anonymous HTTP checks run after publication. |
+
+**Verdict:** READY WITH CAVEATS, pending evidence-link verification.
+
+**What ran:** static source review; 9 mocked direct tests; GenVM lint and SDK validation; live StudioNet deployment, writes, expected-failure transactions, and public-view readback. No integration test suite was run.
+
+**Unverified:** ownership or quality of offered goods, physical delivery, external custody, and real asset settlement. The full internal contract state is not exposed; the recorded readback covers all public views.
+
+**Top caveats:** the faucet mints synthetic balances (`contracts/semantic_barter_clearinghouse.py:174`), and compatibility judgments use participant-provided descriptions (`contracts/semantic_barter_clearinghouse.py:248`).
+
+**Distinct reusable contribution:** a fully consented directed exchange cycle can clear when every two-party orientation fails, while each reserved offer is consumed at most once.

@@ -1,0 +1,802 @@
+{
+  "schema_version": "1.0",
+  "release_date": "2026-09-28",
+  "timezone": "Africa/Lagos",
+  "project": {
+    "name": "semantic-barter-clearinghouse",
+    "repository": "https://github.com/JWattjr/semantic-barter-clearinghouse",
+    "source_commit": "ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb",
+    "source_path": "contracts/semantic_barter_clearinghouse.py",
+    "source_git_blob_sha1": "3432ff04c65a6deee71e620b85e44aa0fd43dc23",
+    "source_bytes": 22014
+  },
+  "network": {
+    "name": "GenLayer StudioNet",
+    "chain_id": 61999,
+    "rpc": "https://studio.genlayer.com/api",
+    "portal_used": false
+  },
+  "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+  "toolchain": {
+    "GenLayerJS": "1.1.8",
+    "GenLayer CLI": "0.39.2",
+    "Python": "3.14.2",
+    "genlayer-py": "0.19.0rc2",
+    "genlayer-test": "0.30.0rc2",
+    "genvm-linter": "0.11.1rc2"
+  },
+  "contract_constructor_args": [],
+  "contract_address": "0x7825aa21426894b598c751C83813954CbfF9fCf0",
+  "participants": [
+    {
+      "role": "Alice",
+      "account_label": "moment-grid-studionet",
+      "address": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92"
+    },
+    {
+      "role": "Bob",
+      "account_label": "portal-five-release",
+      "address": "0x2C8EB5dB1105A85BE66BadafeD88D10cF393CDD8"
+    },
+    {
+      "role": "Charlie",
+      "account_label": "portal-five-release-new",
+      "address": "0x0839A6DDCeC7aA5E6028490266D6D3EFabE316B5"
+    }
+  ],
+  "synthetic_asset_deposits": [
+    {
+      "owner": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "asset_id": "drill",
+      "amount_units": 10
+    },
+    {
+      "owner": "0x2C8EB5dB1105A85BE66BadafeD88D10cF393CDD8",
+      "asset_id": "fasteners",
+      "amount_units": 10
+    },
+    {
+      "owner": "0x0839A6DDCeC7aA5E6028490266D6D3EFabE316B5",
+      "asset_id": "paint",
+      "amount_units": 10
+    }
+  ],
+  "offers": [
+    {
+      "offer_id": "offer-a",
+      "asset_id": "drill",
+      "amount_units": 1,
+      "offered_description": "A hand drill in good working condition with one battery charger.",
+      "request_description": "A set of stainless fasteners suitable for indoor construction.",
+      "offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+      "owner": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92"
+    },
+    {
+      "offer_id": "offer-b",
+      "asset_id": "fasteners",
+      "amount_units": 2,
+      "offered_description": "A set of stainless fasteners suitable for indoor construction.",
+      "request_description": "One sealed tin of interior wall paint in neutral white.",
+      "offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+      "owner": "0x2C8EB5dB1105A85BE66BadafeD88D10cF393CDD8"
+    },
+    {
+      "offer_id": "offer-c",
+      "asset_id": "paint",
+      "amount_units": 3,
+      "offered_description": "One sealed tin of interior wall paint in neutral white.",
+      "request_description": "A hand drill in good working condition with one battery charger.",
+      "offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c",
+      "owner": "0x0839A6DDCeC7aA5E6028490266D6D3EFabE316B5"
+    }
+  ],
+  "consent_deadline_utc": "2026-09-28T01:13:20Z",
+  "offer_expiry_utc": "2026-09-28T02:13:20Z",
+  "two_party_cycles": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "C"
+    ],
+    [
+      "C",
+      "A"
+    ]
+  ],
+  "transactions": [
+    {
+      "operation": "deploy_clearinghouse",
+      "hash": "0x2874c11e7c0958e36900711a6a8ad257dc18018aae8e5d1bcd636744cd3f7801",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 5
+      }
+    },
+    {
+      "operation": "deposit_drill",
+      "hash": "0x37b6a5a8cf6130570ab7ef244c16e7b64110f663fa9677d45bcebc9b90272755",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 5
+      }
+    },
+    {
+      "operation": "deposit_fasteners",
+      "hash": "0xf0f3487ae9e727428a9a7c5a0decc28e7891b60d2394c3c82b7c122c6de86ab1",
+      "actor": "0x2C8EB5dB1105A85BE66BadafeD88D10cF393CDD8",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 5
+      }
+    },
+    {
+      "operation": "deposit_paint",
+      "hash": "0x9137a08c0c1e9b049b07fa982ebd3f2e79c80eb710f0820c8231ad2bbb15f2e2",
+      "actor": "0x0839A6DDCeC7aA5E6028490266D6D3EFabE316B5",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 5
+      }
+    },
+    {
+      "operation": "create_offer-a",
+      "hash": "0xa5dacaeb8f8b0cad5c550024224a2553fc454a163a1cbe90221c47ead7a0cd02",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      }
+    },
+    {
+      "operation": "create_offer-b",
+      "hash": "0x73fd96cb4ab5d553c0ed8f739758e6c48b0c443ea79c8d40ae829c973d3ffb93",
+      "actor": "0x2C8EB5dB1105A85BE66BadafeD88D10cF393CDD8",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "IDLE": 2,
+        "AGREE": 3
+      }
+    },
+    {
+      "operation": "create_offer-c",
+      "hash": "0x431f0e080f69551ab0ebadf06182f1fdacafad69329e002f223d05b7ebc868fa",
+      "actor": "0x0839A6DDCeC7aA5E6028490266D6D3EFabE316B5",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      }
+    },
+    {
+      "operation": "reject_two_party_A_B",
+      "hash": "0xcaea34e3f21a6935cbfd3cb64f494e8319c27877b913a3263e8852fbda4f4e3a",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": true,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      },
+      "expected_failure_label": "EXPECTED_INCOMPATIBLE_TWO_PARTY_CYCLE_REJECTED_A_B"
+    },
+    {
+      "operation": "reject_two_party_B_C",
+      "hash": "0x5dccdf508ef46ffe314f414ff6c4b0b1f4e314edc84eee2f8e51cdf1928939dd",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": true,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "IDLE": 2,
+        "AGREE": 3
+      },
+      "expected_failure_label": "EXPECTED_INCOMPATIBLE_TWO_PARTY_CYCLE_REJECTED_B_C"
+    },
+    {
+      "operation": "reject_two_party_C_A",
+      "hash": "0x069b3d3b622646f0f23cfb1720936f953368d0703976772741170ceb77c92d64",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": true,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      },
+      "expected_failure_label": "EXPECTED_INCOMPATIBLE_TWO_PARTY_CYCLE_REJECTED_C_A"
+    },
+    {
+      "operation": "propose_three_party_cycle",
+      "hash": "0xd43d03b79df025e6ed2dfcd66d38c8d794ca19bafa4fd7a0a3e1d58ca771115c",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "IDLE": 2,
+        "AGREE": 3
+      }
+    },
+    {
+      "operation": "consent_alice",
+      "hash": "0x3efb5bee3fbdbec6d3a9204b1da199610c2fec5b3503b19bc6cd6d10ae77eee6",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "IDLE": 2,
+        "AGREE": 3
+      }
+    },
+    {
+      "operation": "consent_bob",
+      "hash": "0x44b8fdae432969327d8e28c714f640fad49bf83626270f6a3e102f3706104d9b",
+      "actor": "0x2C8EB5dB1105A85BE66BadafeD88D10cF393CDD8",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 5
+      }
+    },
+    {
+      "operation": "consent_charlie",
+      "hash": "0x77a5996deba166eb696642f806a0558435127462b2760677ac3aa42877d4a78b",
+      "actor": "0x0839A6DDCeC7aA5E6028490266D6D3EFabE316B5",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      }
+    },
+    {
+      "operation": "execute_three_party_cycle",
+      "hash": "0xc4029e470b56de77edfca68828c3d65958bd8011d3ee10fabe1f3745e07c7db7",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": false,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "SUCCESS",
+      "leader_result_code": "return",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "IDLE": 2,
+        "AGREE": 3
+      }
+    },
+    {
+      "operation": "replay_consumed_offer_rejected",
+      "hash": "0x3c12f918545da8838fa5923fbcb749c62fe769a19dd7a7f6730073bd11727a29",
+      "actor": "0xdB433ff614bDD1ecE21Aa97221C3E0a7ecf79c92",
+      "submission_status": "SUBMITTED",
+      "expected_failure": true,
+      "acceptance_poll_status": "ACCEPTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "consensus_result": "MAJORITY_AGREE",
+      "rounds": 1,
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      },
+      "expected_failure_label": "EXPECTED_REUSE_OF_CONSUMED_OFFER_REJECTED"
+    }
+  ],
+  "expected_failure_transactions": [
+    "0xcaea34e3f21a6935cbfd3cb64f494e8319c27877b913a3263e8852fbda4f4e3a",
+    "0x5dccdf508ef46ffe314f414ff6c4b0b1f4e314edc84eee2f8e51cdf1928939dd",
+    "0x069b3d3b622646f0f23cfb1720936f953368d0703976772741170ceb77c92d64",
+    "0x3c12f918545da8838fa5923fbcb749c62fe769a19dd7a7f6730073bd11727a29"
+  ],
+  "onchain_source_matches_git_blob": true,
+  "deployed_source_bytes": 22014,
+  "deployed_source_git_blob_sha1": "3432ff04c65a6deee71e620b85e44aa0fd43dc23",
+  "cycle_id": "C-000001",
+  "cycle_after_proposal": {
+    "compatibility_edges": [
+      {
+        "compatible": true,
+        "giver_offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+        "receiver_offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a"
+      },
+      {
+        "compatible": true,
+        "giver_offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c",
+        "receiver_offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b"
+      },
+      {
+        "compatible": true,
+        "giver_offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+        "receiver_offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c"
+      }
+    ],
+    "consent_deadline": "2026-09-28T01:13:20Z",
+    "consents": [],
+    "cycle_id": "C-000001",
+    "offer_keys": [
+      "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+      "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+      "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c"
+    ],
+    "participants": [
+      "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92",
+      "0x2c8eb5db1105a85be66badafed88d10cf393cdd8",
+      "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5"
+    ],
+    "snapshot_digest": "sha256:765b5eb5a5edb97d7ec1283179360bad111c4f355d85b040ff659ba797a8e0d4",
+    "status": "PENDING"
+  },
+  "execution_transaction": "0xc4029e470b56de77edfca68828c3d65958bd8011d3ee10fabe1f3745e07c7db7",
+  "demo_result": "PASS",
+  "python_one_arg_readback": {
+    "get_cycle": {
+      "compatibility_edges": [
+        {
+          "compatible": true,
+          "giver_offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+          "receiver_offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a"
+        },
+        {
+          "compatible": true,
+          "giver_offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c",
+          "receiver_offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b"
+        },
+        {
+          "compatible": true,
+          "giver_offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+          "receiver_offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c"
+        }
+      ],
+      "consent_deadline": "2026-09-28T01:13:20Z",
+      "consents": [
+        "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92",
+        "0x2c8eb5db1105a85be66badafed88d10cf393cdd8",
+        "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5"
+      ],
+      "cycle_id": "C-000001",
+      "offer_keys": [
+        "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+        "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+        "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c"
+      ],
+      "participants": [
+        "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92",
+        "0x2c8eb5db1105a85be66badafed88d10cf393cdd8",
+        "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5"
+      ],
+      "snapshot_digest": "sha256:765b5eb5a5edb97d7ec1283179360bad111c4f355d85b040ff659ba797a8e0d4",
+      "status": "EXECUTED",
+      "transfers": [
+        {
+          "amount_units": 2,
+          "asset_id": "fasteners",
+          "from_offer": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+          "to_participant": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92"
+        },
+        {
+          "amount_units": 3,
+          "asset_id": "paint",
+          "from_offer": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c",
+          "to_participant": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8"
+        },
+        {
+          "amount_units": 1,
+          "asset_id": "drill",
+          "from_offer": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+          "to_participant": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5"
+        }
+      ]
+    },
+    "get_asset_accounting": {
+      "drill": {
+        "asset_id": "drill",
+        "available_units": 10,
+        "conserved": true,
+        "minted_units": 10,
+        "reserved_units": 0
+      },
+      "fasteners": {
+        "asset_id": "fasteners",
+        "available_units": 10,
+        "conserved": true,
+        "minted_units": 10,
+        "reserved_units": 0
+      },
+      "paint": {
+        "asset_id": "paint",
+        "available_units": 10,
+        "conserved": true,
+        "minted_units": 10,
+        "reserved_units": 0
+      }
+    }
+  },
+  "final_onchain_readback": {
+    "get_cycle": {
+      "compatibility_edges": [
+        {
+          "compatible": true,
+          "giver_offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+          "receiver_offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a"
+        },
+        {
+          "compatible": true,
+          "giver_offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c",
+          "receiver_offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b"
+        },
+        {
+          "compatible": true,
+          "giver_offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+          "receiver_offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c"
+        }
+      ],
+      "consent_deadline": "2026-09-28T01:13:20Z",
+      "consents": [
+        "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92",
+        "0x2c8eb5db1105a85be66badafed88d10cf393cdd8",
+        "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5"
+      ],
+      "cycle_id": "C-000001",
+      "offer_keys": [
+        "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+        "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+        "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c"
+      ],
+      "participants": [
+        "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92",
+        "0x2c8eb5db1105a85be66badafed88d10cf393cdd8",
+        "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5"
+      ],
+      "snapshot_digest": "sha256:765b5eb5a5edb97d7ec1283179360bad111c4f355d85b040ff659ba797a8e0d4",
+      "status": "EXECUTED",
+      "transfers": [
+        {
+          "amount_units": 2,
+          "asset_id": "fasteners",
+          "from_offer": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+          "to_participant": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92"
+        },
+        {
+          "amount_units": 3,
+          "asset_id": "paint",
+          "from_offer": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c",
+          "to_participant": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8"
+        },
+        {
+          "amount_units": 1,
+          "asset_id": "drill",
+          "from_offer": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+          "to_participant": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5"
+        }
+      ]
+    },
+    "get_offers": [
+      {
+        "amount_units": 1,
+        "asset_id": "drill",
+        "expires_at": "2026-09-28T02:13:20Z",
+        "offer_id": "offer-a",
+        "offer_key": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92|offer-a",
+        "offered_description": "A hand drill in good working condition with one battery charger.",
+        "owner": "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92",
+        "request_description": "A set of stainless fasteners suitable for indoor construction.",
+        "status": "CONSUMED"
+      },
+      {
+        "amount_units": 2,
+        "asset_id": "fasteners",
+        "expires_at": "2026-09-28T02:13:20Z",
+        "offer_id": "offer-b",
+        "offer_key": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8|offer-b",
+        "offered_description": "A set of stainless fasteners suitable for indoor construction.",
+        "owner": "0x2c8eb5db1105a85be66badafed88d10cf393cdd8",
+        "request_description": "One sealed tin of interior wall paint in neutral white.",
+        "status": "CONSUMED"
+      },
+      {
+        "amount_units": 3,
+        "asset_id": "paint",
+        "expires_at": "2026-09-28T02:13:20Z",
+        "offer_id": "offer-c",
+        "offer_key": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5|offer-c",
+        "offered_description": "One sealed tin of interior wall paint in neutral white.",
+        "owner": "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5",
+        "request_description": "A hand drill in good working condition with one battery charger.",
+        "status": "CONSUMED"
+      }
+    ],
+    "get_asset_accounting": {
+      "drill": {
+        "asset_id": "drill",
+        "available_units": 10,
+        "conserved": true,
+        "minted_units": 10,
+        "reserved_units": 0
+      },
+      "fasteners": {
+        "asset_id": "fasteners",
+        "available_units": 10,
+        "conserved": true,
+        "minted_units": 10,
+        "reserved_units": 0
+      },
+      "paint": {
+        "asset_id": "paint",
+        "available_units": 10,
+        "conserved": true,
+        "minted_units": 10,
+        "reserved_units": 0
+      }
+    },
+    "get_balances": {
+      "0xdb433ff614bdd1ece21aa97221c3e0a7ecf79c92": {
+        "drill": 9,
+        "fasteners": 2,
+        "paint": 0
+      },
+      "0x2c8eb5db1105a85be66badafed88d10cf393cdd8": {
+        "drill": 0,
+        "fasteners": 8,
+        "paint": 3
+      },
+      "0x0839a6ddcec7aa5e6028490266d6d3efabe316b5": {
+        "drill": 1,
+        "fasteners": 0,
+        "paint": 7
+      }
+    }
+  },
+  "expected_failures": [
+    {
+      "transaction": "0xcaea34e3f21a6935cbfd3cb64f494e8319c27877b913a3263e8852fbda4f4e3a",
+      "operation": "reject_two_party_A_B",
+      "label": "EXPECTED_INCOMPATIBLE_TWO_PARTY_CYCLE_REJECTED_A_B",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      }
+    },
+    {
+      "transaction": "0x5dccdf508ef46ffe314f414ff6c4b0b1f4e314edc84eee2f8e51cdf1928939dd",
+      "operation": "reject_two_party_B_C",
+      "label": "EXPECTED_INCOMPATIBLE_TWO_PARTY_CYCLE_REJECTED_B_C",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "IDLE": 2,
+        "AGREE": 3
+      }
+    },
+    {
+      "transaction": "0x069b3d3b622646f0f23cfb1720936f953368d0703976772741170ceb77c92d64",
+      "operation": "reject_two_party_C_A",
+      "label": "EXPECTED_INCOMPATIBLE_TWO_PARTY_CYCLE_REJECTED_C_A",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      }
+    },
+    {
+      "transaction": "0x3c12f918545da8838fa5923fbcb749c62fe769a19dd7a7f6730073bd11727a29",
+      "operation": "replay_consumed_offer_rejected",
+      "label": "EXPECTED_REUSE_OF_CONSUMED_OFFER_REJECTED",
+      "finality_status": "FINALIZED",
+      "leader_execution": "ERROR",
+      "leader_result_code": "rollback",
+      "votes_committed": 5,
+      "votes_revealed": 5,
+      "vote_types": {
+        "AGREE": 3,
+        "IDLE": 2
+      }
+    }
+  ],
+  "release_record_path": "deployments/studionet-release-2026-09-28.json",
+  "contract_readback_scope": "All callable public views were read: get_cycle, get_offer for each of three offers, get_asset_accounting for each asset, and get_balance for all nine participant/asset pairs. This contract has no get_state method; no hidden internal state is exposed.",
+  "self_review": {
+    "verdict": "PENDING_EVIDENCE_LINK_VERIFICATION",
+    "gates": {
+      "technical_readiness": {
+        "result": "PASS",
+        "evidence": "9 direct tests passed; 3 lint checks; 13 validated methods; exact deployed source blob match; 16 finalized live transactions."
+      },
+      "distinctiveness": {
+        "result": "PASS",
+        "evidence": "Three incompatible two-party cycles rolled back; the consented three-party cycle executed; consumed-offer replay rolled back."
+      },
+      "evidence_readiness": {
+        "result": "PENDING",
+        "evidence": "Release artifacts and public-view read-back are recorded; anonymous HTTP 200 verification is pending repository publication."
+      }
+    },
+    "actual_runs": {
+      "static_review": "Completed",
+      "mocked_direct_tests": "9 parameter-expanded tests passed",
+      "integration_tests": "Not run",
+      "live_network": "StudioNet chain 61999; deployment, 15 subsequent writes, and public-view read-back completed."
+    },
+    "unverified": [
+      "Ownership or quality of offered physical goods",
+      "Physical delivery and external custody",
+      "Real asset or token settlement",
+      "Integration test suite"
+    ],
+    "top_caveats": [
+      "Synthetic faucet balances: contracts/semantic_barter_clearinghouse.py:174",
+      "Participant-provided descriptions do not prove real-world compatibility: contracts/semantic_barter_clearinghouse.py:248"
+    ],
+    "distinct_contribution": "A fully consented directed exchange cycle can clear when every two-party orientation fails, while each reserved offer is consumed at most once."
+  },
+  "evidence_urls": [
+    {
+      "label": "repository",
+      "url": "https://github.com/JWattjr/semantic-barter-clearinghouse"
+    },
+    {
+      "label": "README",
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/README.md"
+    },
+    {
+      "label": "deployed source at source commit",
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb/contracts/semantic_barter_clearinghouse.py"
+    },
+    {
+      "label": "release record",
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/deployments/studionet-release-2026-09-28.json"
+    },
+    {
+      "label": "submission draft",
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/SUBMISSION_DRAFT.md"
+    },
+    {
+      "label": "distinctiveness review",
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/docs/DISTINCTIVENESS.md"
+    },
+    {
+      "label": "test matrix",
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/docs/TEST_MATRIX.md"
+    }
+  ]
+}

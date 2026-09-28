@@ -1,23 +1,11 @@
-# Submission draft — not deployed or submitted
+# Submission draft
 
-**Status: local draft only. This contract is undeployed and has not been submitted to the GenLayer Portal.**
+`SemanticBarterClearinghouse` assesses directed compatibility between participant-described offers and requests, then requires exact consent from every participant before atomically transferring the reserved quantities in its internal ledger.
 
-## Project
+**Live demonstration:** on StudioNet chain 61999, all three two-party cycles rolled back as incompatible, while the fully consented three-party cycle executed and replay of its consumed offers rolled back; the deployed source matches commit `ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb`.
 
-`SemanticBarterClearinghouse` forms directed exchange cycles from participant offers and requests. A GenLayer judgment checks whether the next participant's described offer can satisfy each request. The contract binds that compatibility vector to a deterministic cycle snapshot, requires exact consent from each distinct participant, and atomically transfers the pre-reserved demo asset quantities within its own ledger.
+**What it proves:** validator compatibility judgments can gate a consent-bound three-party exchange and the contract ledger prevents offer reuse.
 
-## Distinguishing mechanism
+**What it does not prove:** ownership, condition, or delivery of physical goods, or custody and settlement of real assets; demo units are synthetic.
 
-A three-party cycle can clear when neither two-party orientation satisfies both parties. Offer reservations move only after every participant consents; each asset amount remains conserved across available and reserved balances. No model output chooses quantities or recipients.
-
-## Local verification recorded
-
-- GenVM lint: passed 3 checks.
-- Contract validation: 13 methods (4 views, 9 writes).
-- ABI schema extraction: succeeded to `contracts/abi.json`.
-- Direct-mode tests: 8 passed, including three-party clearing, two-party failure, validator disagreement, malformed leader output, expiry, cancellation, and per-asset conservation.
-- Live deployment, physical delivery, real asset custody, and Portal review: not performed.
-
-## Limitations
-
-The faucet creates synthetic demo units. Participant descriptions do not prove title, quality, or delivery. Direct tests mock compatibility judgments and do not prove live network consensus. No cross-chain settlement is implemented.
+The contract is deployed at `0x7825aa21426894b598c751C83813954CbfF9fCf0`. The [StudioNet release record](deployments/studionet-release-2026-09-28.json) contains transaction outcomes and the complete available public-view read-back. The 9-test direct suite mocks the compatibility judgment; integration tests were not run.
