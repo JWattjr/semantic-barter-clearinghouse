@@ -13,7 +13,7 @@ Scope: contract source review against the other nine portfolio contracts, the na
 
 The mechanism is implemented in contracts/semantic_barter_clearinghouse.py (_assess_cycle, propose_cycle, consent_cycle, execute_cycle). Demo units are internal ledger entries, not delivery or custody of real goods.
 
-**Evidence status:** the 9-test direct suite and StudioNet demonstration both passed. Three incompatible two-party cycles rolled back; the compatible three-party cycle executed after exact consent, and replay of its consumed offers rolled back. The deployed source matches commit `ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb`. Anonymous URL verification is recorded in the release artifact after repository publication.
+**Evidence status:** the 9-test direct suite and StudioNet demonstration both passed. Three incompatible two-party cycles rolled back; the compatible three-party cycle executed after exact consent, and replay of its consumed offers rolled back. The deployed source matches commit `ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb`. All seven evidence URLs returned HTTP 200 with Authorization and Cookie headers empty; the release artifact records the URLs and results.
 
 ## Final self-review
 
@@ -21,9 +21,9 @@ The mechanism is implemented in contracts/semantic_barter_clearinghouse.py (_ass
 |---|---|---|
 | Technical readiness | PASS | 9 parameter-expanded direct tests, 3 GenVM lint checks, 13 validated methods, source-blob match, and all 16 StudioNet transactions finalized (12 successful calls and 4 expected rollbacks). |
 | Distinctiveness | PASS | Every two-party cycle failed on an incompatible directed edge; the fully consented three-party cycle executed and each consumed-offer replay failed. |
-| Evidence readiness | PENDING | Deployment, transaction outcomes, and public-view readback are recorded; anonymous HTTP checks run after publication. |
+| Evidence readiness | PASS | All seven recorded evidence URLs returned HTTP 200 anonymously after publication. |
 
-**Verdict:** READY WITH CAVEATS, pending evidence-link verification.
+**Verdict:** READY WITH CAVEATS.
 
 **What ran:** static source review; 9 mocked direct tests; GenVM lint and SDK validation; live StudioNet deployment, writes, expected-failure transactions, and public-view readback. No integration test suite was run.
 

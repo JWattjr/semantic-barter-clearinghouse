@@ -736,7 +736,7 @@
   "release_record_path": "deployments/studionet-release-2026-09-28.json",
   "contract_readback_scope": "All callable public views were read: get_cycle, get_offer for each of three offers, get_asset_accounting for each asset, and get_balance for all nine participant/asset pairs. This contract has no get_state method; no hidden internal state is exposed.",
   "self_review": {
-    "verdict": "PENDING_EVIDENCE_LINK_VERIFICATION",
+    "verdict": "READY WITH CAVEATS",
     "gates": {
       "technical_readiness": {
         "result": "PASS",
@@ -747,8 +747,8 @@
         "evidence": "Three incompatible two-party cycles rolled back; the consented three-party cycle executed; consumed-offer replay rolled back."
       },
       "evidence_readiness": {
-        "result": "PENDING",
-        "evidence": "Release artifacts and public-view read-back are recorded; anonymous HTTP 200 verification is pending repository publication."
+        "result": "PASS",
+        "evidence": "All 7 recorded URLs returned anonymous HTTP 200 after publication; requests used curl -q with empty Authorization and Cookie headers."
       }
     },
     "actual_runs": {
@@ -772,31 +772,53 @@
   "evidence_urls": [
     {
       "label": "repository",
-      "url": "https://github.com/JWattjr/semantic-barter-clearinghouse"
+      "url": "https://github.com/JWattjr/semantic-barter-clearinghouse",
+      "http_status": 200,
+      "anonymously_verified": true
     },
     {
       "label": "README",
-      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/README.md"
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/README.md",
+      "http_status": 200,
+      "anonymously_verified": true
     },
     {
       "label": "deployed source at source commit",
-      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb/contracts/semantic_barter_clearinghouse.py"
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/ec60bc2d81ad11afe2d0f9754eb8ed505cc17ccb/contracts/semantic_barter_clearinghouse.py",
+      "http_status": 200,
+      "anonymously_verified": true
     },
     {
       "label": "release record",
-      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/deployments/studionet-release-2026-09-28.json"
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/deployments/studionet-release-2026-09-28.json",
+      "http_status": 200,
+      "anonymously_verified": true
     },
     {
       "label": "submission draft",
-      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/SUBMISSION_DRAFT.md"
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/SUBMISSION_DRAFT.md",
+      "http_status": 200,
+      "anonymously_verified": true
     },
     {
       "label": "distinctiveness review",
-      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/docs/DISTINCTIVENESS.md"
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/docs/DISTINCTIVENESS.md",
+      "http_status": 200,
+      "anonymously_verified": true
     },
     {
       "label": "test matrix",
-      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/docs/TEST_MATRIX.md"
+      "url": "https://raw.githubusercontent.com/JWattjr/semantic-barter-clearinghouse/main/docs/TEST_MATRIX.md",
+      "http_status": 200,
+      "anonymously_verified": true
     }
-  ]
+  ],
+  "repository_visibility": "public",
+  "anonymous_evidence_check": {
+    "verified": true,
+    "checked_url_count": 7,
+    "result": "All seven recorded evidence URLs returned HTTP 200.",
+    "method": "curl.exe -q -L with Authorization and Cookie headers empty; curl configuration disabled.",
+    "verified_on": "2026-09-28 Africa/Lagos"
+  }
 }
